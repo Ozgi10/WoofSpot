@@ -27,7 +27,7 @@ export default function HomePage() {
               Go for a walk🐾
             </Link>
             <Link
-              to="/Donation"
+              to="/donation"
               className="text-teal-500/75 text-center 
               text-xl font-['italic'] 
             transform  transition duration-500  
@@ -37,7 +37,7 @@ export default function HomePage() {
             </Link>
 
             <Link
-              to="/adoption"
+              to="/dogs"
               className="text-center text-2xl font-['italic']
                          capitalize text-teal-400/100 rounded-4xl
                          w-32 bg-white hover:text-[#5c77ae]

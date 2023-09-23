@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Navbar from "./components//Navbar";
 
 const Adopt = () => {
   const [name, setName] = useState("");
@@ -28,7 +27,6 @@ const Adopt = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="adopt-container">
         <h1>Adoption Questionnaire</h1>
         <form onSubmit={handleAdoptSubmit} className="questionnaire-form">
