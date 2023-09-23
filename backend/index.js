@@ -1,29 +1,24 @@
-import dotenv from "dotenv";
+import "dotenv/config";
 import express from "express";
-import mongoose from "mongoose";
 import cors from "cors";
-import bodyParser from "body-parser";
+
 import dogsRoutes from "./routes/dogsRoutes.js";
+import AdoptRoutes from "./routes/AdoptRoutes.js";
+import dbConnect from "./dbConnect.js";
 
 const app = express();
-dotenv.config();
-app.use(bodyParser.json());
-app.use(cors());
 app.use(express.json());
+app.use(cors());
+dbConnect();
 
-const PORT = process.env.PORT || 3993;
-
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => {
-    console.log("MongoDB is connected...🎉");
-  })
-  .catch((err) => console.log(err));
+app.get("/", (req, res) => {
+  res.send("Woof-Spot🐕🦮🐩🐾🦴");
+});
 
 app.use("/", dogsRoutes);
+app.use("/", AdoptRoutes);
 
-app.get("/", (req, res) => res.send("Woof-Spot🐕🦮🐩🐾🦴"));
-
+const PORT = 3993;
 app.listen(PORT, () => {
   console.log(`Serving is running on port http://localhost:${PORT}`);
 });

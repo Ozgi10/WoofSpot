@@ -40,8 +40,8 @@ export async function updateDogById(req, res) {
       return;
     }
 
-    const updatedDog = { ...dog, ...req.body };
-    await dog.updateOne({ _id: req.params.id }, updatedDog);
+    Object.assign(dog, req.body);
+    const updatedDog = await dog.save();
 
     res.status(200).json(updatedDog);
   } catch (error) {
