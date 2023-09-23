@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Dogs = () => {
   const [dogs, setDogs] = useState([]);
@@ -19,6 +20,7 @@ const Dogs = () => {
 
   return (
     <div>
+      <Navbar />
       <h1
         className="text-center text-2xl 
                          capitalize text-teal-400/100 rounded-4xl

@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const lostFoundSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  age: { type: Number, required: true },
+  name: { type: String },
+  age: { type: Number },
   breed: { type: String },
   gender: { type: String },
   description: { type: String, required: true },

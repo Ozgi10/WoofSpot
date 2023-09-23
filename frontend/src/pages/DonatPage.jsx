@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 const DonatePage = () => {
   const [donationAmount, setDonationAmount] = useState(1);
@@ -43,6 +44,7 @@ const DonatePage = () => {
   return (
     <div className="bg-gray-100 h-screen flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-md">
+        <Navbar />
         <h1 className="text-3xl font-semibold mb-4">
           Donate to Our Pet Shelter
         </h1>

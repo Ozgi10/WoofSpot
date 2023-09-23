@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import Dogs from "./pages/Adoption-Doglist";
 import AdoptionForm from "./pages/AdoptionForm";
 import DonatePage from "./pages/DonatPage";
+import LostFoundForm from "./pages/LostFound";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/dogs" element={<Dogs />} />
           <Route path="/adoptionform" element={<AdoptionForm />} />
           <Route path="/donation" element={<DonatePage />} />
+          <Route path="/lostfound" element={<LostFoundForm />} />
         </Routes>
       </div>
     </Router>

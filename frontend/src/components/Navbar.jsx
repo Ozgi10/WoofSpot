@@ -1,62 +1,41 @@
-import { BsFillPersonFill } from "react-icons/bs";
-import { IoIosFitness } from "react-icons/io";
 import { Link } from "react-router-dom";
-import { HiHome } from "react-icons/hi";
-import { MdOutlineFastfood } from "react-icons/md";
 
 const Navbar = () => {
   return (
-    <>
-      <nav className=" w-full h-full fixed top  left-0 right-0 z-50 ">
-        <div className="">
-          <div
-            className="className= flex justify-evenly items-center w-full h-14 shadow-md 
-                   bg-[#1] lg:h-20 "
-          >
-            <li className=" list-none ">
-              <Link to="/nutrition" className="">
-                <MdOutlineFastfood
-                  className=" text-[#f2f2f2] hover:text-[#3c42de] transform hover:scale-110 transition duration-500  lg:h-20"
-                  size={30}
-                />
-              </Link>
-            </li>
-            {/* </div> */}
-            <li className="list-none">
-              <Link to="/fitness">
-                {
-                  <IoIosFitness
-                    className=" text-[#f2f2f2]  hover:text-[#3c42de]  transform hover:scale-110 transition duration-500 lg:h-20"
-                    size={32}
-                  />
-                }
-              </Link>
-            </li>
-            <li className="list-none">
-              <Link to="/home">
-                {
-                  <HiHome
-                    className=" text-[#f2f2f2]  hover:text-[#3c42de] transform hover:scale-110 transition duration-500 lg:h-20"
-                    size={30}
-                  />
-                }
-              </Link>
-            </li>
-            <li className="list-none">
-              <Link to="/profile">
-                {" "}
-                {
-                  <BsFillPersonFill
-                    className=" text-[#f2f2f2] hover:text-[#3c42de] transform hover:scale-110 transition duration-500 lg:h-20"
-                    size={30}
-                  />
-                }{" "}
-              </Link>
-            </li>
-          </div>
-        </div>
-      </nav>
-    </>
+    <nav className="bg-blue-500 p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link to="/" className="text-white text-2xl font-semibold">
+          Woof-Spot
+        </Link>
+        <ul className="flex space-x-4">
+          <li>
+            <Link
+              to="/dogs"
+              className="text-white hover:text-gray-300 transition duration-300"
+            >
+              Adoption
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/lostfound"
+              className="text-white hover:text-gray-300 transition duration-300"
+            >
+              Lost & Found
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/donation"
+              className="text-white hover:text-gray-300 transition duration-300"
+            >
+              Donation
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 };
+
 export default Navbar;
