@@ -18,13 +18,13 @@ export default function HomePage() {
           </div>
           <div id="links" className="flex justify-center items-center gap-12 ">
             <Link
-              to="/gowalk"
+              to="/lostfound"
               className="text-teal-500/50 text-center 
               text-xl font-['italic'] 
             transform  transition duration-500  
             hover:text-[#5c77ae]"
             >
-              Go for a walk🐾
+              Lost & Found🐾
             </Link>
             <Link
               to="/donation"

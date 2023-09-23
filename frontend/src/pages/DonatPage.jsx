@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-//import Navbar from "../components/Navbar";
+import axios from "axios";
 
 const DonatePage = () => {
   const [donationAmount, setDonationAmount] = useState(1);
@@ -9,6 +9,7 @@ const DonatePage = () => {
   const [expirationDate, setDate] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
+  const [donations, setDonations] = useState([]); // State to store donations data
 
   const handleDonate = (e) => {
     e.preventDefault();
@@ -23,7 +24,21 @@ const DonatePage = () => {
 
   useEffect(() => {
     setIsConfirmed(false);
+    // Fetch donations data when the component mounts
+    fetchDonationsData();
   }, [donationAmount, name, email, cardNumber, expirationDate]);
+
+  // Function to fetch donations data
+  const fetchDonationsData = async () => {
+    try {
+      const response = await axios.get(
+        "https://doglist.cyclic.cloud/donations"
+      );
+      setDonations(response.data);
+    } catch (error) {
+      console.error("Error fetching donations:", error);
+    }
+  };
 
   return (
     <div className="bg-gray-100 h-screen flex items-center justify-center">
@@ -33,7 +48,7 @@ const DonatePage = () => {
         </h1>
         {isConfirmed ? (
           <div className="text-green-500 text-lg">
-            <p>Big thanks for Your Woof donation!</p>
+            <p>Big thanks for Your Woof donation!🐾🦴🍗</p>
           </div>
         ) : (
           <form onSubmit={handleDonate} className="donation-form">
@@ -109,6 +124,17 @@ const DonatePage = () => {
             </button>
           </form>
         )}
+        {/* Display donations data */}
+        <div className="mt-4">
+          <h2 className="text-xl font-semibold mb-2">Donations History:</h2>
+          <ul>
+            {donations.map((donation) => (
+              <li key={donation._id}>
+                Donation Amount: ${donation.donationAmount} by {donation.name}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

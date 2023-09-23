@@ -1,11 +1,12 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
+import dbConnect from "./dbConnect.js";
 
 import dogsRoutes from "./routes/dogsRoutes.js";
 import AdoptRoutes from "./routes/AdoptRoutes.js";
-import donateRoutes from "./routes/DonateRoutes.js";
-import dbConnect from "./dbConnect.js";
+import DonateRoutes from "./routes/DonateRoutes.js";
+import LostFoundRoutes from "./routes/LostFoundRoutes.js";
 
 const app = express();
 app.use(express.json());
@@ -18,7 +19,8 @@ app.get("/", (req, res) => {
 
 app.use("/", dogsRoutes);
 app.use("/", AdoptRoutes);
-app.use("/", donateRoutes);
+app.use("/", DonateRoutes);
+app.use("/", LostFoundRoutes);
 
 const PORT = 3993;
 app.listen(PORT, () => {
